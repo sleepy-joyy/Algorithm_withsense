@@ -1,6 +1,8 @@
 function solution(n) {
     let result;
-    let arr = String(n).split("").map(Number);
+    let arr = String(n).split("");
+                        //.map(Number); 
+                        //map(Number)으로 안해도 되나..?//unicode값으로 비교하는데 어차피 숫자로 sort한거랑 같나봐요
          arr.sort(function(a, b) {
             return b - a;});
     result = Number(arr.join(''))
