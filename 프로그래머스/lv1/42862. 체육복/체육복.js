@@ -6,7 +6,7 @@ function solution(n, lost, reserve) {
 
     
     noHave.sort((a,b)=> a-b);                                           //테케 힌트보니까 정렬해야한다고 해서 추가
-    
+    console.log(noHave)
     
     noHave.forEach((student) => {                              //찐체육복없는 스튜던트 한명이 돌아다니면서 여벌있는 애들중 앞뒤체격 애들한테 물어본다. "여벌있음?"
         if (iHave.includes(student-1)){                         //여분이 있는 애들 중에 자기 바로 앞번호 애가있다면?
