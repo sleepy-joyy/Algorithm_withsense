@@ -6,21 +6,22 @@ function solution(n) {
 
     
     let isPrime = [];     //0부터 n까지의 숫자를 쭉 늘어놓고 배수인지 확인할 배열
-    let primeLs = [];    //진짜 소수만 담을 결과 배열 선언
+    let primeLs = [];     //진짜 소수만 담을 결과배열 선언
    
     
-    for(let i = 0 ; i<=n; i++){  //   n=10일 경우 0,1,2,3,4,5,6,7,8,9,10 으로 배열 인덱스랑 일치시켜서 isPrime 배열 만들기
+    for(let i = 0 ; i<=n; i++){  //   n=10일 경우 0,1,2,3,4,5,6,7,8,9,10 으로 배열 인덱스랑 일치시켜서 t/f로 채울 isPrime 배열 만들기
         if(i===0||i===1){
             isPrime[i] = false;   //  근데 0,1은소수가 아니니 false, false 로 놓고 2는 소수이므로  2부터는 쭉 true로 남겨놓고 배수를 false 처리할 예정
         }else isPrime[i] = true;        //isPrime = [F,F,T,T,T,T,T,T,T,T,T];
     }
     
-    for(let i = 2; i<=n; i++){  //2부터 돌면서 만약 
+    for(let i = 2; i<=n; i++){  //2(는 소수니까 트루)부터 돌면서 만약 3,4,5 .... n까지
         if(isPrime[i]){         //i(현재2)번째 값이 true라면,
-            primeLs.push(i);      // primeLs에 푸시를 하고
-        for(let j=i;j<=n;j+=i){     //또다른 반복문이 돌면서 j(현재2)가 i의 배수씩 증가 (+= 현재2)하면서 배수들을 모조리 true --> false로 바꿔버림.
+            primeLs.push(i);      // primeLs에 해당 숫자를 푸시를 하고
+            
+        for(let j = i ; j<=n ; j += i){     //또 다른 반복문이 돌면서 j(현재2)가 i의 배수씩 증가 (+= 현재2)하면서 배수들을 모조리 true --> false로 바꿔버림.
             isPrime[j] = false;        //isPrime = [F,F,T,T,F,T,F,T,F,T,F];
-        }
+        }                                        // 0,1,2,3,4,5,6,7,8,9,10...
       }
     }
     return primeLs.length;
